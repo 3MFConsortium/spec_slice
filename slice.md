@@ -110,9 +110,9 @@ xmlns:s="http://schemas.microsoft.com/3dmanufacturing/slice/2015/07" requiredext
 </model>
 ```
 
-_Figure 1-2: Example of Slice Extension structure in core 3MF model – referencing slice data is separate model part:_
+_Figure 1-2: Example of Slice Extension structure in core 3MF model – referencing slice data is separate model part_
 
-_In this example, object id 2 is referenced from the single <build><item> element. The 3MF Core specification expressly states that each object must contain a mesh representation. The geometry of that mesh would be encoded within the <object><mesh> element. Object id 2 then references slicestack id 1. The <slicestack> element can either contain actual slice data or one or more <sliceref> elements to reference slice content from separate model parts within the 3MF container. See figure 1-3._
+In this example, object id 2 is referenced from the single /<build>/<item> element. The 3MF Core specification expressly states that each object must contain a mesh representation. The geometry of that mesh would be encoded within the /<object>/<mesh> element. Object id 2 then references slicestack id 1. The /<slicestack> element can either contain actual slice data or one or more /<sliceref> elements to reference slice content from separate model parts within the 3MF container. See figure 1-3.
 
 ![](3MF_Slice_Extension_Spec_v1.0_html_1e9401bd2c9d4cc1.gif)
 
