@@ -200,14 +200,10 @@ Element **\<object>**
 
 | Name | Type | Use | Default | Fixed | Annotation |
 | --- | --- | --- | --- | --- | --- |
-| slicestackid | **ST\_ResourceID** | required | |
- | Slicestackid identifies the \<slicestack> that contains the slice data for the specified object. If used alone, the slice data exists in the same file as the object. If used in conjunction with the slicepath attribute, the slice data resides in the target file under the specified id. |
-| meshresolution | **xs:string** | optional | fullres |
- | Meshresolution indicates the intended use of mesh models contained in a 3MF package when slice models are present. |
-| --- | --- | --- | --- | --- | --- |
-| \*All other attributes exist in 3MF Core Specification. |
+| slicestackid | **ST\_ResourceID** | required | | | Slicestackid identifies the \<slicestack> that contains the slice data for the specified object. If used alone, the slice data exists in the same file as the object. If used in conjunction with the slicepath attribute, the slice data resides in the target file under the specified id. |
+| meshresolution | **xs:string** | optional | fullres | | Meshresolution indicates the intended use of mesh models contained in a 3MF package when slice models are present. |
 
- |
+All other attributes exist in 3MF Core Specification.
 
 In order to reference slice data, there are two additional attributes for \<object> elements:
 
@@ -230,12 +226,8 @@ Element **\<slicestack>**
 ##### Attributes
 
 | Name | Type | Use | Default | Fixed | Annotation |
-| --- | --- | --- | --- | --- | --- |
-| id | **ST\_ResourceID** | required | | | Defines the unique identifier for this object. The slicestack ID must be unique within the entire 3MF package, but just within a single model part. |
-| zbottom | **ST\_Number** | optional | 0 |
- | The starting level (in specified model units) relative to build platform. |
-
- |
+| --- | --- | --- | --- | --- | --- | | id | **ST\_ResourceID** | required | | | Defines the unique identifier for this object. The slicestack ID must be unique within the entire 3MF package, but just within a single model part. |
+| zbottom | **ST\_Number** | optional | 0 | | The starting level (in specified model units) relative to build platform. |
 
 A \<slicestack> element is referenced from the \<object> element and defines an object by a stack of slices instead of a mesh. The slices in the \<slicestack> element can then be stored in one or more separate files per sliced object using the sliceref element.
 
@@ -253,13 +245,8 @@ Element **\<sliceref>**
 
 | Name | Type | Use | Default | Fixed | Annotation |
 | --- | --- | --- | --- | --- | --- |
-| slicestackid | **ST\_ResourceID** | required | |
- | Slicestackid identifies the \<slicestack> that contains the slice data for the specified object. |
-| slicepath | **ST\_UriReference** | required |
- |
- | Slicepath is an absolute path to a non-root model file in the 3MF package that contains slice data in \<slicestack> objects. |
-
- |
+| slicestackid | **ST\_ResourceID** | required | | | Slicestackid identifies the \<slicestack> that contains the slice data for the specified object. |
+| slicepath | **ST\_UriReference** | required | | | Slicepath is an absolute path to a non-root model file in the 3MF package that contains slice data in \<slicestack> objects. |
 
 Instead of supplying \<slice> elements inside a slice stack, it is also possible to use \<sliceref> elements to include a single slice (or multiple slices at once) from another model stream. Slice Stacks may either contain \<slice> elements or \<sliceref> elements, but they MUST NOT contain both element types concurrently.
 
@@ -287,8 +274,6 @@ The \<slice> element is the 2D companion to the \<mesh> element from the core sp
 | --- | --- | --- | --- | --- | --- |
 | ztop | **ST\_Number** | required | | | ztop allows a slice to have an arbitrary thickness defined as an z-position of the top of the slice relative to the build platform. ztop MUST be always monotonically increasing throughout the slice stack. |
 
- |
-
 ## Vertices
 
 Element **\<vertices>**
@@ -309,9 +294,6 @@ Element **\<vertex>**
 | --- | --- | --- | --- | --- | --- |
 | x | **ST\_Number** | required | | | The position of the vertex along the X axis. |
 | y | **ST\_Number** | required | | | The position of the vertex along the Y axis. |
-| --- | --- | --- | --- | --- | --- |
-
- |
 
 A \<vertex> element represents a point in 2-dimensional space that is referenced by a segment in the slice. The decimal values representing the coordinates can be recorded to arbitrary precision. The precision used should be no higher than that expected from the producer's calculations.
 
@@ -327,11 +309,7 @@ Element **\<polygon>**
 
 | Name | Type | Use | Default | Fixed | Annotation |
 | --- | --- | --- | --- | --- | --- |
-| startv | **ST\_ResourceIndex** | required |
- |
- | References a zero-based index into the vertices for this slice. Defines the first vertex of the first segment. |
-
- |
+| startv | **ST\_ResourceIndex** | required | | | References a zero-based index into the vertices for this slice. Defines the first vertex of the first segment. |
 
 The \<polygon> element contains a set of 1 or more \<segment> elements to describe a 2D contour. If a \<slice> contains content, there MUST be at least one \<polygon> to describe it.
 
@@ -352,23 +330,9 @@ Element **\<segment>**
 | Name | Type | Use | Default | Fixed | Annotation |
 | --- | --- | --- | --- | --- | --- |
 | v2 | **ST\_ResourceIndex** | required | | | References a zero-based index into the vertices for this slice. Defines the second vertex of the segment. |
-| p1 | **ST\_ResourceIndex** |
- |
- |
- | Overrides the slice-level pindex for the first vertex of the segment, which is v2 from the previous segment or startv from the parent polygon. |
-| --- | --- | --- | --- | --- | --- |
-| p2 | **ST\_ResourceIndex** |
- |
- |
- | Overrides the slice-level pindex for the second vertex of the segment |
-| --- | --- | --- | --- | --- | --- |
-| pid | **ST\_ResourceID** |
- |
- |
- | Overrides the slice-level pid for the segment. |
-| --- | --- | --- | --- | --- | --- |
-
- |
+| p1 | **ST\_ResourceIndex** | | | | Overrides the slice-level pindex for the first vertex of the segment, which is v2 from the previous segment or startv from the parent polygon. |
+| p2 | **ST\_ResourceIndex** | | | | Overrides the slice-level pindex for the second vertex of the segment |
+| pid | **ST\_ResourceID** | | | | Overrides the slice-level pid for the segment. |
 
 A \<segment> element represents a single line segment (or edge) of a polygon. It runs from the vertex specified by the previous segment (or the startv \<polygon> attribute for the first segment) to the specified vertex, v2.
 
