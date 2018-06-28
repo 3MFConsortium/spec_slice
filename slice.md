@@ -141,7 +141,7 @@ xmlns:s="http://schemas.microsoft.com/3dmanufacturing/slice/2015/07" unit="milli
 
 _Figure 1-3: Example of Slice Extension structure in core 3MF model – referenced 3MF slice model part:_
 
-_This is a \<sliceref> example where the actual slice contents reside in a separate model part from the source \<slicestack> element. Note that in this case, the \<build> element is empty and there is no \<object> element._
+This is a \<sliceref> example where the actual slice contents reside in a separate model part from the source \<slicestack> element. Note that in this case, the \<build> element is empty and there is no \<object> element.
 
 The \<resources> element in any 3MF model file MAY contain slice model data in one or more \<slicestack> elements. In the case that \<slicestack> data exists in a separate file from the referencing \<object>, the \<slicestack> data can stand alone in that file as long as the core 3MF requirement for a mesh representation of an object exists in the 3MF package.
 
@@ -226,7 +226,8 @@ Element **\<slicestack>**
 ##### Attributes
 
 | Name | Type | Use | Default | Fixed | Annotation |
-| --- | --- | --- | --- | --- | --- | | id | **ST\_ResourceID** | required | | | Defines the unique identifier for this object. The slicestack ID must be unique within the entire 3MF package, but just within a single model part. |
+| --- | --- | --- | --- | --- | --- | 
+| id | **ST\_ResourceID** | required | | | Defines the unique identifier for this object. The slicestack ID must be unique within the entire 3MF package, but just within a single model part. |
 | zbottom | **ST\_Number** | optional | 0 | | The starting level (in specified model units) relative to build platform. |
 
 A \<slicestack> element is referenced from the \<object> element and defines an object by a stack of slices instead of a mesh. The slices in the \<slicestack> element can then be stored in one or more separate files per sliced object using the sliceref element.
