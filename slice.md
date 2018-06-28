@@ -194,9 +194,9 @@ The \<slicestack> element encapsulates slice data. Unlike \<object> elements, \<
 
 Element **\<object>**
 
-| diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_c2f78cb30dc4329a.png) |
-| --- | --- |
-| attributes |
+------image-------
+
+##### Attributes
 
 | Name | Type | Use | Default | Fixed | Annotation |
 | --- | --- | --- | --- | --- | --- |
@@ -227,7 +227,7 @@ Element **\<slicestack>**
 
 ------image-------
 
-| attributes |
+##### Attributes
 
 | Name | Type | Use | Default | Fixed | Annotation |
 | --- | --- | --- | --- | --- | --- |
@@ -249,7 +249,7 @@ Element **\<sliceref>**
 
 ------image-------
 
-| Attributes |
+##### Attributes
 
 | Name | Type | Use | Default | Fixed | Annotation |
 | --- | --- | --- | --- | --- | --- |
@@ -281,7 +281,7 @@ The \<slice> element is the 2D companion to the \<mesh> element from the core sp
 
 ------image-------
 
-| Attributes |
+##### Attributes
 
 | Name | Type | Use | Default | Fixed | Annotation |
 | --- | --- | --- | --- | --- | --- |
@@ -303,7 +303,7 @@ Element **\<vertex>**
 
 ------image-------
 
-| Attributes |
+##### Attributes
 
 | Name | Type | Use | Default | Fixed | Annotation |
 | --- | --- | --- | --- | --- | --- |
@@ -323,7 +323,7 @@ Element **\<polygon>**
 
 ------image-------
 
-| Attributes |
+##### Attributes
 
 | Name | Type | Use | Default | Fixed | Annotation |
 | --- | --- | --- | --- | --- | --- |
@@ -347,7 +347,7 @@ Element **\<segment>**
 
 ------image-------
 
-| attributes |
+##### Attributes
 
 | Name | Type | Use | Default | Fixed | Annotation |
 | --- | --- | --- | --- | --- | --- |
