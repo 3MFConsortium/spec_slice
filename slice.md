@@ -62,7 +62,7 @@ The 3MF Slice extension allows a producer to store slices either in the root mod
 - The original mesh objects can be sliced, and all the new data is additional, requiring little change to the original model file, with the referenced slices existing in separate files in the package.
 - Parsing the model objects from individual XML files will often require fewer resources than parsing a monolithic model file that could be more that 500MB in size.
 
-The root model part MAY have relationships to other model parts, whose /<slicestack> resources can be referenced by the parent model stream using the additional attributes within /<object> elements.
+The root model part MAY have relationships to other model parts, whose \<slicestack> resources can be referenced by the parent model stream using the additional attributes within \<object> elements.
 
 ## Package Organization and OPC Compliance
 
@@ -112,7 +112,7 @@ xmlns:s="http://schemas.microsoft.com/3dmanufacturing/slice/2015/07" requiredext
 
 _Figure 1-2: Example of Slice Extension structure in core 3MF model – referencing slice data is separate model part_
 
-In this example, object id 2 is referenced from the single /<build>/<item> element. The 3MF Core specification expressly states that each object must contain a mesh representation. The geometry of that mesh would be encoded within the /<object>/<mesh> element. Object id 2 then references slicestack id 1. The /<slicestack> element can either contain actual slice data or one or more /<sliceref> elements to reference slice content from separate model parts within the 3MF container. See figure 1-3.
+In this example, object id 2 is referenced from the single \<build>\<item> element. The 3MF Core specification expressly states that each object must contain a mesh representation. The geometry of that mesh would be encoded within the \<object>\<mesh> element. Object id 2 then references slicestack id 1. The \<slicestack> element can either contain actual slice data or one or more \<sliceref> elements to reference slice content from separate model parts within the 3MF container. See figure 1-3.
 
 ![](3MF_Slice_Extension_Spec_v1.0_html_1e9401bd2c9d4cc1.gif)
 
@@ -141,23 +141,23 @@ xmlns:s="http://schemas.microsoft.com/3dmanufacturing/slice/2015/07" unit="milli
 
 _Figure 1-3: Example of Slice Extension structure in core 3MF model – referenced 3MF slice model part:_
 
-_This is a /<sliceref> example where the actual slice contents reside in a separate model part from the source /<slicestack> element. Note that in this case, the /<build> element is empty and there is no /<object> element._
+_This is a \<sliceref> example where the actual slice contents reside in a separate model part from the source \<slicestack> element. Note that in this case, the \<build> element is empty and there is no \<object> element._
 
-The /<resources> element in any 3MF model file MAY contain slice model data in one or more /<slicestack> elements. In the case that /<slicestack> data exists in a separate file from the referencing /<object>, the /<slicestack> data can stand alone in that file as long as the core 3MF requirement for a mesh representation of an object exists in the 3MF package.
+The \<resources> element in any 3MF model file MAY contain slice model data in one or more \<slicestack> elements. In the case that \<slicestack> data exists in a separate file from the referencing \<object>, the \<slicestack> data can stand alone in that file as long as the core 3MF requirement for a mesh representation of an object exists in the 3MF package.
 
-/<slicestack> elements are referenced from an /<object>, which is referenced from a /<build>/<item>. Slice data is ALWAYS coupled with the /<object> with which it is associated and NEVER directly from a /<build>/<item>.
+\<slicestack> elements are referenced from an \<object>, which is referenced from a \<build>\<item>. Slice data is ALWAYS coupled with the \<object> with which it is associated and NEVER directly from a \<build>\<item>.
 
-The /<slicestack> element encapsulates all slice data and references to materials and properties following the same approach as core 3MF meshes. All slice model data is made up of vertices, polygons, and line segments as defined below.
+The \<slicestack> element encapsulates all slice data and references to materials and properties following the same approach as core 3MF meshes. All slice model data is made up of vertices, polygons, and line segments as defined below.
 
-Within the core /<object> element, slice data is incorporated in the following ways:
+Within the core \<object> element, slice data is incorporated in the following ways:
 
-1. slicestackid Attribute: The slicestackid attribute references a /<slicestack> element either in the current model part or in another model part in the 3MF package (see the slicepath attribute).
-2. slicepath Attribute: If the slice model data is contained in a separate model OPC part from the referencing /<object> element, then slicepath and slicestackid attributes are combined to reference the slice data. In this case, for the model part containing the slice data, there MUST exist an OPC relation to the model stream as described in section 2.
-3. meshresolution Attribute: Mesh representations are a REQUIRED part of the core 3MF specification, but encoding both a full-resolution mesh and slice data in the same package can generate large packages. To alleviate this potential file size problem, there is the option to include lower-resolution meshes in the package as long as consumers are notified that the included meshes are not intended to be used to drive fabrication or detailed visualization use cases. The "meshresolution" attribute is used to describe the nature of an /<object> element. If the mesh resolution is "lowres", the 3MF document MUST list the slice extension in the requiredextension attribute of the model section (see paragraph 3.4 of the core specification).
+1. slicestackid Attribute: The slicestackid attribute references a \<slicestack> element either in the current model part or in another model part in the 3MF package (see the slicepath attribute).
+2. slicepath Attribute: If the slice model data is contained in a separate model OPC part from the referencing \<object> element, then slicepath and slicestackid attributes are combined to reference the slice data. In this case, for the model part containing the slice data, there MUST exist an OPC relation to the model stream as described in section 2.
+3. meshresolution Attribute: Mesh representations are a REQUIRED part of the core 3MF specification, but encoding both a full-resolution mesh and slice data in the same package can generate large packages. To alleviate this potential file size problem, there is the option to include lower-resolution meshes in the package as long as consumers are notified that the included meshes are not intended to be used to drive fabrication or detailed visualization use cases. The "meshresolution" attribute is used to describe the nature of an \<object> element. If the mesh resolution is "lowres", the 3MF document MUST list the slice extension in the requiredextension attribute of the model section (see paragraph 3.4 of the core specification).
 
-The /<build> element has a single change for slice data:
+The \<build> element has a single change for slice data:
 
-1. Transforms: If an object references slice model data, the 3D transform matrices in /<build>/<item> and /<component> elements are limited to those that do not impact the slicing orientation (" **planar transformations**"). Therefore, any transform applied (directly or indirectly) to an object that references an /<slicestack> MUST have m02, m12, m20, and m21 equal to zero and m22 equal to one, as defined below (see chapter 3.3 of the core specification). Resulting transformation matrices will therefore have the following form:
+1. Transforms: If an object references slice model data, the 3D transform matrices in \<build>\<item> and \<component> elements are limited to those that do not impact the slicing orientation (" **planar transformations**"). Therefore, any transform applied (directly or indirectly) to an object that references an \<slicestack> MUST have m02, m12, m20, and m21 equal to zero and m22 equal to one, as defined below (see chapter 3.3 of the core specification). Resulting transformation matrices will therefore have the following form:
 
 | m00 | m01 | 0.0 | **0.0** |
 | --- | --- | --- | --- |
@@ -178,22 +178,22 @@ Sliced model data extends the core 3MF mesh format's geometrical representation 
 
 3MF consumers that do not claim support for the Slice Extension have no responsibility to parse or otherwise process sliced model data.
 
-All slice models are referenced from /<object> elements. The reference can be within the same model file as the /<object> or from a different file in the same 3MF package. As defined in the 3MF Core Specification, all valid 3MF packages MUST contain a mesh representation of all models in the package. In order to balance the need for a guaranteed core representation with the need to be space efficient with 3MF packages, producers can choose to include different resolutions for the mesh models included when slice models are the primary representation in the package. The meshresolution attribute at the /<object> level indicates the relative resolution of the mesh.
+All slice models are referenced from \<object> elements. The reference can be within the same model file as the \<object> or from a different file in the same 3MF package. As defined in the 3MF Core Specification, all valid 3MF packages MUST contain a mesh representation of all models in the package. In order to balance the need for a guaranteed core representation with the need to be space efficient with 3MF packages, producers can choose to include different resolutions for the mesh models included when slice models are the primary representation in the package. The meshresolution attribute at the \<object> level indicates the relative resolution of the mesh.
 
 There is a single transform for each build item. If both 2D slice and 3D mesh models are included in the 3MF package, the item transform is limited according to the transforms section in Chapter 3. This limitation ensures that the models are arranged in a consistent manner for both slice and mesh representations when they are both used.
 
 # Chapter 2. Resources
 
-Element **/<resources>**
+Element **\<resources>**
 
 | diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_42c3072087e5da3.png) |
 | --- | --- |
 
-The /<slicestack> element encapsulates slice data. Unlike /<object> elements, /<slicestack> elements MUST NOT be referenced directly from /<build> items. Instead, they are referenced from /<object> elements to ensure that object positions are maintained for both 3D and 2D content.
+The \<slicestack> element encapsulates slice data. Unlike \<object> elements, \<slicestack> elements MUST NOT be referenced directly from \<build> items. Instead, they are referenced from \<object> elements to ensure that object positions are maintained for both 3D and 2D content.
 
 ## Object
 
-Element **/<object>**
+Element **\<object>**
 
 | diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_c2f78cb30dc4329a.png) |
 | --- | --- |
@@ -202,7 +202,7 @@ Element **/<object>**
 | Name | Type | Use | Default | Fixed | Annotation |
 | --- | --- | --- | --- | --- | --- |
 | slicestackid | **ST\_ResourceID** | required | |
- | Slicestackid identifies the /<slicestack> that contains the slice data for the specified object. If used alone, the slice data exists in the same file as the object. If used in conjunction with the slicepath attribute, the slice data resides in the target file under the specified id. |
+ | Slicestackid identifies the \<slicestack> that contains the slice data for the specified object. If used alone, the slice data exists in the same file as the object. If used in conjunction with the slicepath attribute, the slice data resides in the target file under the specified id. |
 | meshresolution | **xs:string** | optional | fullres |
  | Meshresolution indicates the intended use of mesh models contained in a 3MF package when slice models are present. |
 | --- | --- | --- | --- | --- | --- |
@@ -210,9 +210,9 @@ Element **/<object>**
 
  |
 
-In order to reference slice data, there are two additional attributes for /<object> elements:
+In order to reference slice data, there are two additional attributes for \<object> elements:
 
-- "_slicestackid"_: An identifier for the model data contained within a /<slicestack> object. The identifier must be unique in the 3MF package. If slicestackid is used in conjunction with the slicepath attribute, slicestackid references that slicestack id in the specified file in the 3MF package.
+- "_slicestackid"_: An identifier for the model data contained within a \<slicestack> object. The identifier must be unique in the 3MF package. If slicestackid is used in conjunction with the slicepath attribute, slicestackid references that slicestack id in the specified file in the 3MF package.
 
 - "_meshresolution"_: an enumerated description of the mesh that is included in the 3MF package. Meshresolution gives consumers a hint about how the mesh data in the 3MF package is intended to be used when slice data is also present. Valid options are:
 
@@ -224,7 +224,7 @@ A 3MF package containing "lowres" objects MUST list the slice extension in the r
 
 ## Slicestack
 
-Element **/<slicestack>**
+Element **\<slicestack>**
 
 | diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_febccb6d286a9917.png) |
 | --- | --- |
@@ -238,15 +238,15 @@ Element **/<slicestack>**
 
  |
 
-A /<slicestack> element is referenced from the /<object> element and defines an object by a stack of slices instead of a mesh. The slices in the /<slicestack> element can then be stored in one or more separate files per sliced object using the sliceref element.
+A \<slicestack> element is referenced from the \<object> element and defines an object by a stack of slices instead of a mesh. The slices in the \<slicestack> element can then be stored in one or more separate files per sliced object using the sliceref element.
 
 The zbottom attribute in slicestack indicates where on the z axis that slices should start relative to the build platform. This allows the producer to align the bottom of a sliced part with the mesh vertices of a mesh representation in the same 3MF package.
 
-The /<sliceref> element is described in the following subsection, while the more complicated /<slice> element gets its own treatment in Chapter 3.
+The \<sliceref> element is described in the following subsection, while the more complicated \<slice> element gets its own treatment in Chapter 3.
 
 ### SliceRef
 
-Element **/<sliceref>**
+Element **\<sliceref>**
 
 | Diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_16a1b0b5aaa63fb8.png) |
 | --- | --- |
@@ -255,20 +255,20 @@ Element **/<sliceref>**
 | Name | Type | Use | Default | Fixed | Annotation |
 | --- | --- | --- | --- | --- | --- |
 | slicestackid | **ST\_ResourceID** | required | |
- | Slicestackid identifies the /<slicestack> that contains the slice data for the specified object. |
+ | Slicestackid identifies the \<slicestack> that contains the slice data for the specified object. |
 | slicepath | **ST\_UriReference** | required |
  |
- | Slicepath is an absolute path to a non-root model file in the 3MF package that contains slice data in /<slicestack> objects. |
+ | Slicepath is an absolute path to a non-root model file in the 3MF package that contains slice data in \<slicestack> objects. |
 
  |
 
-Instead of supplying /<slice> elements inside a slice stack, it is also possible to use /<sliceref> elements to include a single slice (or multiple slices at once) from another model stream. Slice Stacks may either contain /<slice> elements or /<sliceref> elements, but they MUST NOT contain both element types concurrently.
+Instead of supplying \<slice> elements inside a slice stack, it is also possible to use \<sliceref> elements to include a single slice (or multiple slices at once) from another model stream. Slice Stacks may either contain \<slice> elements or \<sliceref> elements, but they MUST NOT contain both element types concurrently.
 
 The referenced slice stack has to live in a related OPC part, identified by the "slicepath" URI. The following rules apply:
 
 - The OPC part of the referenced slice stack MUST be different than the model stream of the original slice stack.
 - The OPC part of the referenced slice stack MUST be related to the model stream of the original slice stack.
-- A referenced slice stack MUST NOT contain any further /<sliceref> elements – there can be only a single layer of abstraction from the original /<slicestack> to the slice contents.
+- A referenced slice stack MUST NOT contain any further \<sliceref> elements – there can be only a single layer of abstraction from the original \<slicestack> to the slice contents.
 
 All three rules avoid circular references or unwanted structural complexity.
 
@@ -276,9 +276,9 @@ At the interface between adjacent sliceref elements, the last ztop of the first 
 
 # Chapter 3. Slice
 
-Element **/<slice>**
+Element **\<slice>**
 
-The /<slice> element is the 2D companion to the /<mesh> element from the core specification. It is comprised of one /<vertices> and one or more /<polygon> elements that describe the polygons of the slice to be printed. A /<slice> can exist that contains no geometry for a variety of reasons. If an object slice is completely void of content, it MUST still be represented with a /<slice> element which ONLY contains a ztop reference to establish the vertical space which the void occupies. If a /<slice> element contains any geometry, then it must adhere to the requirements specified below.
+The \<slice> element is the 2D companion to the \<mesh> element from the core specification. It is comprised of one \<vertices> and one or more \<polygon> elements that describe the polygons of the slice to be printed. A \<slice> can exist that contains no geometry for a variety of reasons. If an object slice is completely void of content, it MUST still be represented with a \<slice> element which ONLY contains a ztop reference to establish the vertical space which the void occupies. If a \<slice> element contains any geometry, then it must adhere to the requirements specified below.
 
 | Diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_b351294c1b66a96.png) |
 | --- | --- |
@@ -292,16 +292,16 @@ The /<slice> element is the 2D companion to the /<mesh> element from the core sp
 
 ## Vertices
 
-Element **/<vertices>**
+Element **\<vertices>**
 
-The vertices element contains all the /<vertex> elements for this object. Vertices represent the points of the polygons within the slice. The order of these elements defines an implicit 0-based index that is referenced by other elements, such as the /<segment> element. If the /<slice> contains content, the /<vertices> element MUST exist and all downstream rules apply. The producer SHOULD collapse vertices that are very closely proximal with a single vertex. In order to avoid integer overflows, a vertex array MUST contain less than 2^31 vertices.
+The vertices element contains all the \<vertex> elements for this object. Vertices represent the points of the polygons within the slice. The order of these elements defines an implicit 0-based index that is referenced by other elements, such as the \<segment> element. If the \<slice> contains content, the \<vertices> element MUST exist and all downstream rules apply. The producer SHOULD collapse vertices that are very closely proximal with a single vertex. In order to avoid integer overflows, a vertex array MUST contain less than 2^31 vertices.
 
 | Diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_962ec44c8767bbd3.png) |
 | --- | --- |
 
 ### Vertex
 
-Element **/<vertex>**
+Element **\<vertex>**
 
 | Diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_68d37b2629285b0.png) |
 | --- | --- |
@@ -315,13 +315,13 @@ Element **/<vertex>**
 
  |
 
-A /<vertex> element represents a point in 2-dimensional space that is referenced by a segment in the slice. The decimal values representing the coordinates can be recorded to arbitrary precision. The precision used should be no higher than that expected from the producer's calculations.
+A \<vertex> element represents a point in 2-dimensional space that is referenced by a segment in the slice. The decimal values representing the coordinates can be recorded to arbitrary precision. The precision used should be no higher than that expected from the producer's calculations.
 
-In order to avoid integer overflows, a /<vertices> element MUST contain less than 2^31 /<vertex> elements.
+In order to avoid integer overflows, a \<vertices> element MUST contain less than 2^31 \<vertex> elements.
 
 ## Polygon
 
-Element **/<polygon>**
+Element **\<polygon>**
 
 | Diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_5a9ed8f2229114cc.png) |
 | --- | --- |
@@ -335,17 +335,17 @@ Element **/<polygon>**
 
  |
 
-The /<polygon> element contains a set of 1 or more /<segment> elements to describe a 2D contour. If a /<slice> contains content, there MUST be at least one /<polygon> to describe it.
+The \<polygon> element contains a set of 1 or more \<segment> elements to describe a 2D contour. If a \<slice> contains content, there MUST be at least one \<polygon> to describe it.
 
-If an object which is referencing a /<slicestack> element is marked as type "model" or "solidsupport", all polygons of all slices of this stack MUST be closed, meaning the final segment references the same vertex as the startv attribute. Manufacturing devices MUST interpret these polygons as solid objects and MUST apply the positive fill rule defined in the core 3MF specification (see paragraph 4.1.1) to unambiguously define the interior set in the case where self-intersections or intersections between polygons exist.
+If an object which is referencing a \<slicestack> element is marked as type "model" or "solidsupport", all polygons of all slices of this stack MUST be closed, meaning the final segment references the same vertex as the startv attribute. Manufacturing devices MUST interpret these polygons as solid objects and MUST apply the positive fill rule defined in the core 3MF specification (see paragraph 4.1.1) to unambiguously define the interior set in the case where self-intersections or intersections between polygons exist.
 
-If an object which is referencing a /<slicestack> element is marked as type "support" then all contours of all polygons are considered open, and the manufacturing device may decide – possibly taking into account print ticket parameters – the actual representation (e.g thickness) of the support. In any case, the manufacturing device MUST NOT fill these polygons.
+If an object which is referencing a \<slicestack> element is marked as type "support" then all contours of all polygons are considered open, and the manufacturing device may decide – possibly taking into account print ticket parameters – the actual representation (e.g thickness) of the support. In any case, the manufacturing device MUST NOT fill these polygons.
 
 In order to avoid integer overflows, a slice MUST contain less than 2^31 polygons.
 
 ### ![](3MF_Slice_Extension_Spec_v1.0_html_a588342db1ee02f2.png)Segment
 
-Element **/<segment>**
+Element **\<segment>**
 
 | Diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_86599799a8013f2b.png) |
 | --- | --- |
@@ -372,7 +372,7 @@ Element **/<segment>**
 
  |
 
-A /<segment> element represents a single line segment (or edge) of a polygon. It runs from the vertex specified by the previous segment (or the startv /<polygon> attribute for the first segment) to the specified vertex, v2.
+A \<segment> element represents a single line segment (or edge) of a polygon. It runs from the vertex specified by the previous segment (or the startv \<polygon> attribute for the first segment) to the specified vertex, v2.
 
 As described above, the polygon is closed only if the final segment vertex "v2" is the same as startv.
 
@@ -380,11 +380,11 @@ The v2 attributes MUST be distinct from their immediate predecessor/successor se
 
 The property p1 is applied to the beginning of the segment, while p2 applies to the end vertex "v2". These properties allow property gradients to be defined across the segment, where interpolation of the property is defined as the linear convex combination.
 
-A consumer that cannot create property gradients MUST apply the p1 property to the entire segment. A consumer that cannot use properties on a per-segment basis MUST ignore the segment properties and use the /<object> level property instead. If p1 is not specified, then no properties are assigned to the segment. If p2 is unspecified then p1 is used for the entire segment.
+A consumer that cannot create property gradients MUST apply the p1 property to the entire segment. A consumer that cannot use properties on a per-segment basis MUST ignore the segment properties and use the \<object> level property instead. If p1 is not specified, then no properties are assigned to the segment. If p2 is unspecified then p1 is used for the entire segment.
 
 The property group is specified by the pid attribute, if different than the property group defined at the object-level. Since this is applied to the whole segment, it implicitly forces the two properties to be from the same group, which implies they are of the same type, as defined in the core 3MF specification.
 
-Producers MUST NOT reference images, e.g. by referencing a /<texture2dgroup> property type.
+Producers MUST NOT reference images, e.g. by referencing a \<texture2dgroup> property type.
 
 In order to avoid integer overflows, a polygon MUST contain less than 2^31 segments.
 
