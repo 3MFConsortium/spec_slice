@@ -84,11 +84,11 @@ _Figure 2–1. A typical production 3MF Document with multiple slice stack strea
 
 _Figure 1-1: Overview of 3MF Slice Extension XML structure_
 
-![](3MF_Slice_Extension_Spec_v1.0_html_9fdc13a208851094.png)
+------image-------
 
 There are additions to the 3MF core specification in the Slice Extension. Each will be detailed by where it fits into the existing core 3MF constructs.
 
-![](3MF_Slice_Extension_Spec_v1.0_html_8436497131f0bd90.gif)
+------image-------
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -114,7 +114,7 @@ _Figure 1-2: Example of Slice Extension structure in core 3MF model – referenc
 
 In this example, object id 2 is referenced from the single \<build>\<item> element. The 3MF Core specification expressly states that each object must contain a mesh representation. The geometry of that mesh would be encoded within the \<object>\<mesh> element. Object id 2 then references slicestack id 1. The \<slicestack> element can either contain actual slice data or one or more \<sliceref> elements to reference slice content from separate model parts within the 3MF container. See figure 1-3.
 
-![](3MF_Slice_Extension_Spec_v1.0_html_1e9401bd2c9d4cc1.gif)
+------image-------
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -186,8 +186,7 @@ There is a single transform for each build item. If both 2D slice and 3D mesh mo
 
 Element **\<resources>**
 
-| diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_42c3072087e5da3.png) |
-| --- | --- |
+------image-------
 
 The \<slicestack> element encapsulates slice data. Unlike \<object> elements, \<slicestack> elements MUST NOT be referenced directly from \<build> items. Instead, they are referenced from \<object> elements to ensure that object positions are maintained for both 3D and 2D content.
 
@@ -226,8 +225,8 @@ A 3MF package containing "lowres" objects MUST list the slice extension in the r
 
 Element **\<slicestack>**
 
-| diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_febccb6d286a9917.png) |
-| --- | --- |
+------image-------
+
 | attributes |
 
 | Name | Type | Use | Default | Fixed | Annotation |
@@ -248,8 +247,8 @@ The \<sliceref> element is described in the following subsection, while the more
 
 Element **\<sliceref>**
 
-| Diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_16a1b0b5aaa63fb8.png) |
-| --- | --- |
+------image-------
+
 | Attributes |
 
 | Name | Type | Use | Default | Fixed | Annotation |
@@ -280,8 +279,8 @@ Element **\<slice>**
 
 The \<slice> element is the 2D companion to the \<mesh> element from the core specification. It is comprised of one \<vertices> and one or more \<polygon> elements that describe the polygons of the slice to be printed. A \<slice> can exist that contains no geometry for a variety of reasons. If an object slice is completely void of content, it MUST still be represented with a \<slice> element which ONLY contains a ztop reference to establish the vertical space which the void occupies. If a \<slice> element contains any geometry, then it must adhere to the requirements specified below.
 
-| Diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_b351294c1b66a96.png) |
-| --- | --- |
+------image-------
+
 | Attributes |
 
 | Name | Type | Use | Default | Fixed | Annotation |
@@ -296,15 +295,14 @@ Element **\<vertices>**
 
 The vertices element contains all the \<vertex> elements for this object. Vertices represent the points of the polygons within the slice. The order of these elements defines an implicit 0-based index that is referenced by other elements, such as the \<segment> element. If the \<slice> contains content, the \<vertices> element MUST exist and all downstream rules apply. The producer SHOULD collapse vertices that are very closely proximal with a single vertex. In order to avoid integer overflows, a vertex array MUST contain less than 2^31 vertices.
 
-| Diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_962ec44c8767bbd3.png) |
-| --- | --- |
+------image-------
 
 ### Vertex
 
 Element **\<vertex>**
 
-| Diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_68d37b2629285b0.png) |
-| --- | --- |
+------image-------
+
 | Attributes |
 
 | Name | Type | Use | Default | Fixed | Annotation |
@@ -323,8 +321,8 @@ In order to avoid integer overflows, a \<vertices> element MUST contain less tha
 
 Element **\<polygon>**
 
-| Diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_5a9ed8f2229114cc.png) |
-| --- | --- |
+------image-------
+
 | Attributes |
 
 | Name | Type | Use | Default | Fixed | Annotation |
@@ -343,12 +341,12 @@ If an object which is referencing a \<slicestack> element is marked as type "sup
 
 In order to avoid integer overflows, a slice MUST contain less than 2^31 polygons.
 
-### ![](3MF_Slice_Extension_Spec_v1.0_html_a588342db1ee02f2.png)Segment
+### Segment
 
 Element **\<segment>**
 
-| Diagram | ![](3MF_Slice_Extension_Spec_v1.0_html_86599799a8013f2b.png) |
-| --- | --- |
+------image-------
+
 | attributes |
 
 | Name | Type | Use | Default | Fixed | Annotation |
