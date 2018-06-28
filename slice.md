@@ -36,15 +36,15 @@ This extension MUST be used only with Core specification 1.0.
 
 ## Document Conventions
 
-See the standard 3MF Document Conventions documentation.
+See [the standard 3MF Document Conventions documentation](https://github.com/3MFConsortium/spec_resources/blob/master/document_conventions.md).
 
 ## Language Notes
 
-See the standard 3MF Language Notes documentation.
+See [the standard 3MF Language Notes documentation](https://github.com/3MFConsortium/spec_resources/blob/master/language_notes.md).
 
 ## Software Conformance
 
-See the standard 3MF Software Conformance documentation.
+See [the standard 3MF Software Conformance documentation](https://github.com/3MFConsortium/spec_resources/blob/master/software_conformance.md).
 
 # Part I: 3MF Documents
 
@@ -392,7 +392,7 @@ In order to avoid integer overflows, a polygon MUST contain less than 2^31 segme
 
 # Appendix A. Glossary
 
-See the standard 3MF Glossary.
+See [the standard 3MF Glossary](https://github.com/3MFConsortium/spec_resources/blob/master/glossary.md).
 
 # Appendix B. 3MF XSD Schema
 
@@ -414,6 +414,6 @@ Slice http://schemas.microsoft.com/3dmanufacturing/slice/2015/07
 
 # References
 
-See the standard 3MF References.
+See [the standard 3MF References](https://github.com/3MFConsortium/spec_resources/blob/master/references.md).
 
 Copyright 3MF Consortium 2016
