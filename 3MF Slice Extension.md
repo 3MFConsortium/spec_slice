@@ -475,4 +475,4 @@ Slice http://schemas.microsoft.com/3dmanufacturing/slice/2015/07
 
 See [the standard 3MF References](https://github.com/3MFConsortium/spec_resources/blob/master/references.md).
 
-Copyright 3MF Consortium 2016
+Copyright 3MF Consortium 2018.
