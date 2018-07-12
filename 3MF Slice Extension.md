@@ -204,7 +204,7 @@ Element **\<object>**
 | slicestackid | **ST\_ResourceID** | required | | | Slicestackid identifies the \<slicestack> that contains the slice data for the specified object. If used alone, the slice data exists in the same file as the object. If used in conjunction with the slicepath attribute, the slice data resides in the target file under the specified id. |
 | meshresolution | **xs:string** | optional | fullres | | Meshresolution indicates the intended use of mesh models contained in a 3MF package when slice models are present. |
 
-All other attributes exist in 3MF Core Specification.
+*All other attributes exist in 3MF Core Specification.
 
 In order to reference slice data, there are two additional attributes for \<object> elements:
 
