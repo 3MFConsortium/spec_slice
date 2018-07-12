@@ -77,7 +77,7 @@ To maintain OPC compliance, slice model data (outside of the root model file) mu
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
-<Relationship Target="/2D/slices1.model" Id="rel100" Type="http://schemas.microsoft.com/3dmanufacturing/2013/01/3dmodel" />
+  <Relationship Target="/2D/slices1.model" Id="rel100" Type="http://schemas.microsoft.com/3dmanufacturing/2013/01/3dmodel" />
 </Relationships>
 ```
 
@@ -97,19 +97,19 @@ There are additions to the 3MF core specification in the Slice Extension. Each w
 <?xml version="1.0" encoding="utf-8"?>
 <model unit="millimeter" lang="en-US" xmlns="http://schemas.microsoft.com/3dmanufacturing/core/2015/02"
 xmlns:s="http://schemas.microsoft.com/3dmanufacturing/slice/2015/07" requiredextensions="s">
-<resources>
-<s:slicestack id="1" zbottom="0.000">
-<s:sliceref slicestackid="1" slicepath="/2D/8cb173a3-7ed9-40f2-b3f1-ef4e4aefcc.model" ztop="2.000" />
-</s:slicestack>
-<object id="2" name="TestModel" s:meshresolution="lowres" s:slicestackid="1">
-<mesh>
-<!-- mesh content here -->
-</mesh>
-</object>
-</resources>
-<build>
-<item objectid="2" transform="1.0000 0.0000 0.0000 0.0000 1.0000 0.0000 0.0000 0.0000 1.0000 0.0000 0.0000 0.0000" />
-</build>
+  <resources>
+    <s:slicestack id="1" zbottom="0.000">
+      <s:sliceref slicestackid="1" slicepath="/2D/8cb173a3-7ed9-40f2-b3f1-ef4e4aefcc.model" ztop="2.000" />
+    </s:slicestack>
+    <object id="2" name="TestModel" s:meshresolution="lowres" s:slicestackid="1">
+      <mesh>
+        <!-- mesh content here -->
+      </mesh>
+    </object>
+  </resources>
+  <build>
+    <item objectid="2" transform="1.0000 0.0000 0.0000 0.0000 1.0000 0.0000 0.0000 0.0000 1.0000 0.0000 0.0000 0.0000" />
+  </build>
 </model>
 ```
 
