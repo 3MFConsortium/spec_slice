@@ -22,7 +22,30 @@ THESE MATERIALS ARE PROVIDED "AS IS." The contributors expressly disclaim any wa
 
 ## Table of Contents
 
-TBD
+- [Preface](#preface)
+  * [About this Specification](#about-this-specification)
+  * [Document Conventions](#document-conventions)
+  * [Language Notes](#language-notes)
+  * [Software Conformance](#software-conformance)
+- [Part I: 3MF Documents](#part-i-3mf-documents)
+- [Chapter 1. Introduction](#chapter-1-introduction)
+  * [Package Organization and OPC Compliance](#package-organization-and-opc-compliance)
+  * [Slice Extension Additions Overview](#slice-extension-additions-overview)
+  * [Slice Data Processing Rules](#slice-data-processing-rules)
+- [Chapter 2. Resources](#chapter-2-resources)
+  * [Object](#object)
+  * [Slicestack](#slicestack)
+- [Chapter 3. Slice](#chapter-3-slice)
+  * [Vertices](#vertices)
+  * [Polygon](#polygon)
+- [Part II. Appendixes](#part-ii-appendixes)
+- [Appendix A. Glossary](#appendix-a-glossary)
+- [Appendix B. 3MF XSD Schema](#appendix-b-3mf-xsd-schema)
+- [Appendix C. Standard Namespaces and Content Types](#appendix-c-standard-namespaces-and-content-types)
+  * [C.1 Content Types](#c1-content-types)
+  * [C.2 Relationship Types](#c2-relationship-types)
+  * [C.3 Namespaces](#c3-namespaces)
+- [References](#references)
 
 # Preface
 
