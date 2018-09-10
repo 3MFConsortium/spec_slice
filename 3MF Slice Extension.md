@@ -356,7 +356,7 @@ In order to avoid integer overflows, a polygon MUST contain less than 2^31 segme
 
 # Appendix A. Glossary
 
-See [the standard 3MF Glossary](https://github.com/3MFConsortium/spec_resources/blob/master/glossary.md).
+See [the 3MF Core Specification glossary](https://github.com/3MFConsortium/spec_core/blob/master/3MF%20Core%20Specification.md#appendix-a-glossary).
 
 # Appendix B. 3MF XSD Schema
 
@@ -477,6 +477,6 @@ Slice http://schemas.microsoft.com/3dmanufacturing/slice/2015/07
 
 # References
 
-See [the standard 3MF References](https://github.com/3MFConsortium/spec_resources/blob/master/references.md).
+See [the 3MF Core Specification references](https://github.com/3MFConsortium/spec_core/blob/master/3MF%20Core%20Specification.md#references).
 
 Copyright 3MF Consortium 2018.
