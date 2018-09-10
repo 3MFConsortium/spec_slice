@@ -22,7 +22,30 @@ THESE MATERIALS ARE PROVIDED "AS IS." The contributors expressly disclaim any wa
 
 ## Table of Contents
 
-TBD
+- [Preface](#preface)
+  * [About this Specification](#about-this-specification)
+  * [Document Conventions](#document-conventions)
+  * [Language Notes](#language-notes)
+  * [Software Conformance](#software-conformance)
+- [Part I: 3MF Documents](#part-i-3mf-documents)
+- [Chapter 1. Introduction](#chapter-1-introduction)
+  * [Package Organization and OPC Compliance](#package-organization-and-opc-compliance)
+  * [Slice Extension Additions Overview](#slice-extension-additions-overview)
+  * [Slice Data Processing Rules](#slice-data-processing-rules)
+- [Chapter 2. Resources](#chapter-2-resources)
+  * [Object](#object)
+  * [Slicestack](#slicestack)
+- [Chapter 3. Slice](#chapter-3-slice)
+  * [Vertices](#vertices)
+  * [Polygon](#polygon)
+- [Part II. Appendixes](#part-ii-appendixes)
+- [Appendix A. Glossary](#appendix-a-glossary)
+- [Appendix B. 3MF XSD Schema](#appendix-b-3mf-xsd-schema)
+- [Appendix C. Standard Namespaces and Content Types](#appendix-c-standard-namespaces-and-content-types)
+  * [C.1 Content Types](#c1-content-types)
+  * [C.2 Relationship Types](#c2-relationship-types)
+  * [C.3 Namespaces](#c3-namespaces)
+- [References](#references)
 
 # Preface
 
@@ -40,15 +63,15 @@ This extension MUST be used only with Core specification 1.0.
 
 ## Document Conventions
 
-See [the standard 3MF Document Conventions documentation](https://github.com/3MFConsortium/spec_resources/blob/master/document_conventions.md).
+See [the 3MF Core Specification conventions](https://github.com/3MFConsortium/spec_core/blob/master/3MF%20Core%20Specification.md#document-conventions).
 
 ## Language Notes
 
-See [the standard 3MF Language Notes documentation](https://github.com/3MFConsortium/spec_resources/blob/master/language_notes.md).
+See [the 3MF Core Specification language notes](https://github.com/3MFConsortium/spec_core/blob/master/3MF%20Core%20Specification.md#language-notes).
 
 ## Software Conformance
 
-See [the standard 3MF Software Conformance documentation](https://github.com/3MFConsortium/spec_resources/blob/master/software_conformance.md).
+See [the 3MF Core Specification software conformance](https://github.com/3MFConsortium/spec_core/blob/master/3MF%20Core%20Specification.md#software-conformance).
 
 # Part I: 3MF Documents
 
@@ -356,7 +379,7 @@ In order to avoid integer overflows, a polygon MUST contain less than 2^31 segme
 
 # Appendix A. Glossary
 
-See [the standard 3MF Glossary](https://github.com/3MFConsortium/spec_resources/blob/master/glossary.md).
+See [the 3MF Core Specification glossary](https://github.com/3MFConsortium/spec_core/blob/master/3MF%20Core%20Specification.md#appendix-a-glossary).
 
 # Appendix B. 3MF XSD Schema
 
@@ -477,6 +500,6 @@ Slice http://schemas.microsoft.com/3dmanufacturing/slice/2015/07
 
 # References
 
-See [the standard 3MF References](https://github.com/3MFConsortium/spec_resources/blob/master/references.md).
+See [the 3MF Core Specification references](https://github.com/3MFConsortium/spec_core/blob/master/3MF%20Core%20Specification.md#references).
 
 Copyright 3MF Consortium 2018.
