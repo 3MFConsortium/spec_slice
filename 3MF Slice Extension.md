@@ -266,8 +266,8 @@ Element **\<sliceref>**
 
 | Name | Type | Use | Default | Annotation |
 | --- | --- | --- | --- | --- |
-| slicestackid | **ST\_ResourceID** | required | | Slicestackid identifies the \<slicestack> that contains the slice data for the specified object. |
-| slicepath | **ST\_UriReference** | required | | Slicepath is an absolute path to a non-root model file in the 3MF package that contains slice data in \<slicestack> objects. |
+| slicestackid | **ST\_ResourceID** | required | | Identifies the \<slicestack> that contains the slice data for the specified object. |
+| slicepath | **ST\_UriReference** | required | | An absolute path to a non-root model file in the 3MF package that contains slice data in \<slicestack> objects. |
 
 Instead of supplying \<slice> elements inside a slice stack, it is also possible to use \<sliceref> elements to include a single slice (or multiple slices at once) from another model stream. Slice Stacks may either contain \<slice> elements or \<sliceref> elements, but they MUST NOT contain both element types concurrently.
 
@@ -293,7 +293,7 @@ The \<slice> element is the 2D companion to the \<mesh> element from the core sp
 
 | Name | Type | Use | Default | Annotation |
 | --- | --- | --- | --- | --- |
-| ztop | **ST\_Number** | required | | ztop allows a slice to have an arbitrary thickness defined as an z-position of the top of the slice relative to the build platform. ztop MUST be always monotonically increasing throughout the slice stack. |
+| ztop | **ST\_Number** | required | | Allows a slice to have an arbitrary thickness defined as an z-position of the top of the slice relative to the build platform. ztop MUST be always monotonically increasing throughout the slice stack. |
 
 ## Vertices
 
