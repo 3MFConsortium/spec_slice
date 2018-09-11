@@ -101,14 +101,14 @@ To maintain OPC compliance, slice model data (outside of the root model file) mu
 </Relationships>
 ```
 
-![Figure 2-1](images/figure_2-1.png)
-_Figure 2–1. A typical production 3MF Document with multiple slice stack streams_
+![Figure 1-1](images/figure_1-1.png)
+_Figure 1–1. A typical production 3MF Document with multiple slice stack streams_
 
 ## Slice Extension Additions Overview
 
-_Figure 1-1: Overview of 3MF Slice Extension XML structure_
+_Figure 1-2: Overview of 3MF Slice Extension XML structure_
 
-![Figure 1-1](images/figure_1-1.png)
+![Figure 1-2](images/figure_1-2.png)
 
 There are additions to the 3MF core specification in the Slice Extension. Each will be detailed by where it fits into the existing core 3MF constructs.
 
@@ -133,9 +133,9 @@ xmlns:s="http://schemas.microsoft.com/3dmanufacturing/slice/2015/07" requiredext
 </model>
 ```
 
-_Figure 1-2: Example of Slice Extension structure in core 3MF model – referencing slice data is separate model part_
+_Figure 1-3: Example of Slice Extension structure in core 3MF model – referencing slice data is separate model part_
 
-In this example, object id 2 is referenced from the single \<build>\<item> element. The 3MF Core specification expressly states that each object must contain a mesh representation. The geometry of that mesh would be encoded within the \<object>\<mesh> element. Object id 2 then references slicestack id 1. The \<slicestack> element can either contain actual slice data or one or more \<sliceref> elements to reference slice content from separate model parts within the 3MF container. See figure 1-3.
+In this example, object id 2 is referenced from the single \<build>\<item> element. The 3MF Core specification expressly states that each object must contain a mesh representation. The geometry of that mesh would be encoded within the \<object>\<mesh> element. Object id 2 then references slicestack id 1. The \<slicestack> element can either contain actual slice data or one or more \<sliceref> elements to reference slice content from separate model parts within the 3MF container. See figure 1-4.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -160,7 +160,7 @@ xmlns:s="http://schemas.microsoft.com/3dmanufacturing/slice/2015/07" unit="milli
 </model>
 ```
 
-_Figure 1-3: Example of Slice Extension structure in core 3MF model – referenced 3MF slice model part:_
+_Figure 1-4: Example of Slice Extension structure in core 3MF model – referenced 3MF slice model part:_
 
 This is a \<sliceref> example where the actual slice contents reside in a separate model part from the source \<slicestack> element. Note that in this case, the \<build> element is empty and there is no \<object> element.
 
