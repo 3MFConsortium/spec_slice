@@ -180,7 +180,7 @@ Within the core \<object> element, slice data is incorporated in the following w
 
 The \<build> element has a single change for slice data:
 
-1. Transforms: If an object references slice model data, the 3D transform matrices in \<build>\<item> and \<component> elements are limited to those that do not impact the slicing orientation (planar transformations). Therefore, any transform applied (directly or indirectly) to an object that references an \<slicestack> MUST have m02, m12, m20, and m21 equal to* zero and m22 equal to one (see [chapter 3.3](https://github.com/3MFConsortium/spec_core/blob/master/3MF%20Core%20Specification.md#33-3d-matrices) of the core specification). Resulting transformation matrices will therefore have the following form:
+1. Transforms: If an object references slice model data, the 3D transform matrices in \<build>\<item> and \<component> elements are limited to those that do not impact the slicing orientation (planar transformations). Therefore, any transform applied (directly or indirectly) to an object that references an \<slicestack> MUST have m02, m12, m20, and m21 equal to* (see below) zero and m22 equal to one (see [chapter 3.3](https://github.com/3MFConsortium/spec_core/blob/master/3MF%20Core%20Specification.md#33-3d-matrices) of the core specification). Resulting transformation matrices will therefore have the following form:
 
 | m00 | m01 | 0.0 | **0.0** |
 | --- | --- | --- | --- |
@@ -188,10 +188,10 @@ The \<build> element has a single change for slice data:
 | 0.0 | 0.0 | 1.0 | **0.0** |
 | m30 | m31 | m32 | **1.0** |
 
->\* Equal to in this context MUST NOT be defined in a floating point sense (e.g. with epsilon tolerances), but always interpreted the following way:
+\* Equal to in this context MUST NOT be defined in a floating point sense (e.g. with epsilon tolerances), but always interpreted the following way:
 
->1. Producers MUST NOT output other transformation string values than "0", "0." or "0.0" with an arbitrary amount of trailing zeros for m02, m12, m20, and m21.
->2. Producers MUST NOT output other transformation string values than "1", "1." or "1.0" with an arbitrary amount of trailing zeros for m22.
+1. Producers MUST NOT output other transformation string values than "0", "0." or "0.0" with an arbitrary amount of trailing zeros for m02, m12, m20, and m21.
+2. Producers MUST NOT output other transformation string values than "1", "1." or "1.0" with an arbitrary amount of trailing zeros for m22.
 
 This specifically excludes signs and scientific representations in order to keep the planar transformations efficient, reproducible, easy to implement and without special corner cases.
 
