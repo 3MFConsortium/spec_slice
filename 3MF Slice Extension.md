@@ -56,7 +56,7 @@ Part II, "Appendixes," contains additional technical details and schemas too ext
 
 The information contained in this specification is subject to change. Every effort has been made to ensure its accuracy at the time of publication.
 
-This extension MUST be used only with Core specification 1.0.
+This extension MUST be used only with Core specification 1.x.
 
 ## Document Conventions
 
@@ -76,15 +76,15 @@ See [the 3MF Core Specification software conformance](https://github.com/3MFCons
 
 This document describes new elements and attributes to support the inclusion of sliced model data in a 3MF package.
 
-The Slice Extension allows models to be stored as stacks of 2D slices alongside the 3D meshes of the core specification. In this way lower-level printer data can be stored in the 3MF package. This slice also allows for the specification of materials and properties on the polygons and line segments that make up individual slices. Since the sliced data is potentially quite large, we allow that data to be moved into separate xml documents in the package for easier parsing.
+The Slice Extension allows models to be stored as stacks of 2D slices alongside the 3D meshes of the core specification. In this way lower-level printer data can be stored in the 3MF package. These slices also allow for the specification of materials and properties on the polygons and line segments that make up individual slices. Since the sliced data is potentially quite large, we allow that data to be moved into separate xml documents in the package for easier parsing.
 
-As highlighted in later sections, the underlying concept of 3mf extensions is to maintain a fallback possibility to the core specification for consumer not able to handle slice data.
+As highlighted in later sections, the underlying concept of 3mf extensions is to maintain a fallback possibility to the core specification for consumers not able to handle slice data.
 
 The 3MF Slice extension allows a producer to store slices either in the root model part or in other model files in 3MF packages. This structural approach enables three primary advantages for producers and consumers of 3MF packages with large amounts of data:
 
 - The build directive in the root model file can be parsed by consumers without having to parse any actual model data.
 - The original mesh objects can be sliced, and all the new data is additional, requiring little change to the original model file, with the referenced slices existing in separate files in the package.
-- Parsing the model objects from individual XML files will often require fewer resources than parsing a monolithic model file that could be more that 500MB in size.
+- Parsing the model objects from individual XML files will often require fewer resources than parsing a monolithic model file that could be more than 500MB in size.
 
 The root model part MAY have relationships to other model parts, whose \<slicestack> resources can be referenced by the parent model stream using the additional attributes within \<object> elements.
 
@@ -133,7 +133,7 @@ xmlns:s="http://schemas.microsoft.com/3dmanufacturing/slice/2015/07" requiredext
 </model>
 ```
 
-_Figure 1-3: Example of Slice Extension structure in core 3MF model – referencing slice data is separate model part_
+_Figure 1-3: Example of Slice Extension structure in core 3MF model, which references slice data in a separate model part. See figure 1-4, below._
 
 In this example, object id 2 is referenced from the single \<build>\<item> element. The 3MF Core specification expressly states that each object must contain a mesh representation. The geometry of that mesh would be encoded within the \<object>\<mesh> element. Object id 2 then references slicestack id 1. The \<slicestack> element can either contain actual slice data or one or more \<sliceref> elements to reference slice content from separate model parts within the 3MF container. See figure 1-4.
 
