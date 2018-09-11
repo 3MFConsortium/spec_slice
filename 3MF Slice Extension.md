@@ -221,22 +221,19 @@ Element **\<object>**
 
 ##### Attributes
 
-| Name | Type | Use | Default | Fixed | Annotation |
-| --- | --- | --- | --- | --- | --- |
-| slicestackid | **ST\_ResourceID** | required | | | Slicestackid identifies the \<slicestack> that contains the slice data for the specified object. If used alone, the slice data exists in the same file as the object. If used in conjunction with the slicepath attribute, the slice data resides in the target file under the specified id. |
-| meshresolution | **xs:string** | optional | fullres | | Meshresolution indicates the intended use of mesh models contained in a 3MF package when slice models are present. |
+| Name | Type | Use | Default | Annotation |
+| --- | --- | --- | --- | --- |
+| slicestackid | **ST\_ResourceID** | required | | Identifies the \<slicestack> that contains the slice data for the specified object. If used alone, the slice data exists in the same file as the object. If used in conjunction with the slicepath attribute, the slice data resides in the target file under the specified id. |
+| meshresolution | **xs:string** | optional | fullres | Indicates the intended use of mesh models contained in a 3MF package when slice models are present. |
 
 *All other attributes exist in 3MF Core Specification.
 
 In order to reference slice data, there are two additional attributes for \<object> elements:
 
-- "_slicestackid"_: An identifier for the model data contained within a \<slicestack> object. The identifier must be unique in the 3MF package. If slicestackid is used in conjunction with the slicepath attribute, slicestackid references that slicestack id in the specified file in the 3MF package.
-
-- "_meshresolution"_: an enumerated description of the mesh that is included in the 3MF package. Meshresolution gives consumers a hint about how the mesh data in the 3MF package is intended to be used when slice data is also present. Valid options are:
-
-"_fullres"_: The included mesh data is "full resolution" and could be used to re-generate the slices contained in the 3MF package.
-
-"_lowres"_: The included mesh is not sufficiently accurate to re-generate the slices contained in the 3MF package.
+* "_slicestackid"_: An identifier for the model data contained within a \<slicestack> object. The identifier MUST be unique in the 3MF package. If slicestackid is used in conjunction with the slicepath attribute, slicestackid references that slicestack id in the specified file in the 3MF package.
+* "_meshresolution"_: An enumerated description of the mesh that is included in the 3MF package. meshresolution gives consumers a hint about how the mesh data in the 3MF package is intended to be used when slice data is also present. Valid options are:
+  * "_fullres"_: The included mesh data is "full resolution" and could be used to re-generate the slices contained in the 3MF package.
+  * "_lowres"_: The included mesh is not sufficiently accurate to re-generate the slices contained in the 3MF package.
 
 A 3MF package containing "lowres" objects MUST list the slice extension in the requiredextensions property of the model section (see chapter 1).
 
