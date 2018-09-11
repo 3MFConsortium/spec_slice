@@ -112,6 +112,8 @@ _Figure 1-2: Overview of 3MF Slice Extension XML structure_
 
 There are additions to the 3MF core specification in the Slice Extension. Each will be detailed by where it fits into the existing core 3MF constructs.
 
+Figures 1-3 and 1-4 together comprise an example of the slice extension in use.
+
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -133,7 +135,7 @@ xmlns:s="http://schemas.microsoft.com/3dmanufacturing/slice/2015/07" requiredext
 </model>
 ```
 
-_Figure 1-3: Example of Slice Extension structure in core 3MF model, which references slice data in a separate model part. See figure 1-4, below._
+_Figure 1-3: Example of referencing Slice Extension structure in core 3MF model._
 
 In this example, object id 2 is referenced from the single \<build>\<item> element. The 3MF Core specification expressly states that each object must contain a mesh representation. The geometry of that mesh would be encoded within the \<object>\<mesh> element. Object id 2 then references slicestack id 1. The \<slicestack> element can either contain actual slice data or one or more \<sliceref> elements to reference slice content from separate model parts within the 3MF container. See figure 1-4.
 
@@ -160,7 +162,7 @@ xmlns:s="http://schemas.microsoft.com/3dmanufacturing/slice/2015/07" unit="milli
 </model>
 ```
 
-_Figure 1-4: Example of Slice Extension structure in core 3MF model – referenced 3MF slice model part:_
+_Figure 1-4: Example of referenced Slice Extension structure in core 3MF model_
 
 This is a \<sliceref> example where the actual slice contents reside in a separate model part from the source \<slicestack> element. Note that in this case, the \<build> element is empty and there is no \<object> element.
 
@@ -173,8 +175,8 @@ The \<slicestack> element encapsulates all slice data and references to material
 Within the core \<object> element, slice data is incorporated in the following ways:
 
 1. slicestackid Attribute: The slicestackid attribute references a \<slicestack> element either in the current model part or in another model part in the 3MF package (see the slicepath attribute).
-2. slicepath Attribute: If the slice model data is contained in a separate model OPC part from the referencing \<object> element, then slicepath and slicestackid attributes are combined to reference the slice data. In this case, for the model part containing the slice data, there MUST exist an OPC relation to the model stream as described in section 2.
-3. meshresolution Attribute: Mesh representations are a REQUIRED part of the core 3MF specification, but encoding both a full-resolution mesh and slice data in the same package can generate large packages. To alleviate this potential file size problem, there is the option to include lower-resolution meshes in the package as long as consumers are notified that the included meshes are not intended to be used to drive fabrication or detailed visualization use cases. The "meshresolution" attribute is used to describe the nature of an \<object> element. If the mesh resolution is "lowres", the 3MF document MUST list the slice extension in the requiredextension attribute of the model section (see paragraph 3.4 of the core specification).
+2. slicepath Attribute: If the slice model data is contained in a separate model OPC part from the referencing \<object> element, then slicepath and slicestackid attributes are combined to reference the slice data. In this case, for the model part containing the referenced slice data, there MUST exist an OPC relation to the model stream as described in section 2.
+3. meshresolution Attribute: Mesh representations are a REQUIRED part of the core 3MF specification, but encoding both a full-resolution mesh and slice data in the same package can generate large packages. To alleviate this potential file size problem, there is the option to include lower-resolution meshes in the package as long as consumers are notified that the included meshes are not intended to be used to drive fabrication or detailed visualization use cases. The "meshresolution" attribute is used to describe the nature of an \<object> element. If the mesh resolution is "lowres", the 3MF document MUST list the slice extension in the requiredextension attribute of the model section (see [paragraph 3.4](https://github.com/3MFConsortium/spec_core/blob/master/3MF%20Core%20Specification.md#34-model) of the core specification).
 
 The \<build> element has a single change for slice data:
 
