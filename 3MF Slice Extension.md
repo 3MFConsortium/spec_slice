@@ -39,12 +39,9 @@ THESE MATERIALS ARE PROVIDED "AS IS." The contributors expressly disclaim any wa
   * [Vertices](#vertices)
   * [Polygon](#polygon)
 - [Part II. Appendixes](#part-ii-appendixes)
-- [Appendix A. Glossary](#appendix-a-glossary)
-- [Appendix B. 3MF XSD Schema](#appendix-b-3mf-xsd-schema)
-- [Appendix C. Standard Namespaces and Content Types](#appendix-c-standard-namespaces-and-content-types)
-  * [C.1 Content Types](#c1-content-types)
-  * [C.2 Relationship Types](#c2-relationship-types)
-  * [C.3 Namespaces](#c3-namespaces)
+  * [Appendix A. Glossary](#appendix-a-glossary)
+  * [Appendix B. 3MF XSD Schema](#appendix-b-3mf-xsd-schema)
+  * [Appendix C. Standard Namespaces and Content Types](#appendix-c-standard-namespaces-and-content-types)
 - [References](#references)
 
 # Preface
@@ -377,11 +374,11 @@ In order to avoid integer overflows, a polygon MUST contain less than 2^31 segme
 
 # Part II. Appendixes
 
-# Appendix A. Glossary
+## Appendix A. Glossary
 
 See [the 3MF Core Specification glossary](https://github.com/3MFConsortium/spec_core/blob/master/3MF%20Core%20Specification.md#appendix-a-glossary).
 
-# Appendix B. 3MF XSD Schema
+## Appendix B. 3MF XSD Schema
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -484,17 +481,17 @@ See [the 3MF Core Specification glossary](https://github.com/3MFConsortium/spec_
 </xs:schema>
 ```
 
-# Appendix C. Standard Namespaces and Content Types
+## Appendix C. Standard Namespaces and Content Types
 
-## C.1 Content Types
+### C.1 Content Types
 
 3D Model application/vnd.ms-package.3dmanufacturing-3dmodel+xml
 
-## C.2 Relationship Types
+### C.2 Relationship Types
 
 3D Model http://schemas.microsoft.com/3dmanufacturing/2013/01/3dmodel
 
-## C.3 Namespaces
+### C.3 Namespaces
 
 Slice http://schemas.microsoft.com/3dmanufacturing/slice/2015/07
 
