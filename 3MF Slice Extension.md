@@ -12,9 +12,9 @@
 
 
 
-| **Version** | 1.0.1 |
+| **Version** | 1.0.2 |
 | --- | --- |
-| **Status** | Published |
+| **Status** | Draft |
 
 ## Disclaimer
 
@@ -61,6 +61,8 @@ This extension MUST be used only with Core specification 1.x.
 ## Document Conventions
 
 See [the 3MF Core Specification conventions](https://github.com/3MFConsortium/spec_core/blob/master/3MF%20Core%20Specification.md#document-conventions).
+
+In this extension specification, as an example, the prefix "s" maps to the xml-namespace "http://schemas.microsoft.com/3dmanufacturing/slice/2015/07". See Appendix [C.3 Namespaces](#c3-namespaces).
 
 ## Language Notes
 
