@@ -239,7 +239,7 @@ In order to reference slice data, there are two additional attributes for \<obje
 
 A 3MF package containing "lowres" objects MUST list the slice extension in the requiredextensions property of the model section (see [chapter 1](https://github.com/3MFConsortium/spec_slice/blob/master/3MF%20Slice%20Extension.md#chapter-1-introduction)).
 
-The slicestack MIGHT be defined on a components object providing a slicestack for the combined components or on an individual mesh object. When the slicestack is defined in both types of objects, the slicestack that prevails MUST be the one at the components level.
+The slicestack MIGHT be defined on a components object providing a slicestack for the combined components or on a referenced object. When the slicestack is defined in both types of objects, the slicestack that prevails MUST be the one at the components level.
 
 ## Slicestack
 
