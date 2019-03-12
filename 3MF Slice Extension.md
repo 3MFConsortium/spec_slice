@@ -12,7 +12,7 @@
 
 
 
-| **Version** | 1.0.1 |
+| **Version** | 1.0.2 |
 | --- | --- |
 | **Status** | Published |
 
@@ -61,6 +61,8 @@ This extension MUST be used only with Core specification 1.x.
 ## Document Conventions
 
 See [the 3MF Core Specification conventions](https://github.com/3MFConsortium/spec_core/blob/master/3MF%20Core%20Specification.md#document-conventions).
+
+In this extension specification, as an example, the prefix "s" maps to the xml-namespace "http://schemas.microsoft.com/3dmanufacturing/slice/2015/07". See Appendix [C.3 Namespaces](#c3-namespaces).
 
 ## Language Notes
 
@@ -236,6 +238,8 @@ In order to reference slice data, there are two additional attributes for \<obje
   * "_lowres"_: The included mesh is not sufficiently accurate to re-generate the slices contained in the 3MF package.
 
 A 3MF package containing "lowres" objects MUST list the slice extension in the requiredextensions property of the model section (see [chapter 1](https://github.com/3MFConsortium/spec_slice/blob/master/3MF%20Slice%20Extension.md#chapter-1-introduction)).
+
+The slicestack MIGHT be defined on a components object providing a slicestack for the combined components or on a referenced object. When the slicestack is defined in both types of objects, the slicestack that prevails MUST be the one at the components level.
 
 ## Slicestack
 
