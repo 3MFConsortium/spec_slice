@@ -12,7 +12,7 @@
 
 
 
-| **Version** | 1.0.2 |
+| **Version** | 1.0.3 |
 | --- | --- |
 | **Status** | Published |
 
@@ -123,7 +123,7 @@ Figures 1-3 and 1-4 together comprise an example of the slice extension in use.
 xmlns:s="http://schemas.microsoft.com/3dmanufacturing/slice/2015/07" requiredextensions="s">
   <resources>
     <s:slicestack id="1" zbottom="0.000">
-      <s:sliceref slicestackid="1" slicepath="/2D/8cb173a3-7ed9-40f2-b3f1-ef4e4aefcc.model" ztop="2.000" />
+      <s:sliceref slicestackid="1" slicepath="/2D/8cb173a3-7ed9-40f2-b3f1-ef4e4aefcc.model" />
     </s:slicestack>
     <object id="2" name="TestModel" s:meshresolution="lowres" s:slicestackid="1">
       <mesh>
